@@ -1,0 +1,34 @@
+package Cipher2;
+public class caesarCipher implements cipherable{
+  private int shift;
+  public caesarCipher (int initShift) {
+    shift = initShift;
+  }
+  public String encode(String message) {
+    //message can be char+1 w for loop
+    String message1 = "";
+    String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa";
+    for(int x=0; x < message.length(); x++) {
+      for(int y=1; y < alphabet.length(); y++) {
+        int xMessage = message.charAt(x);
+        if (xMessage == alphabet.charAt(y)) {
+          message1 += alphabet.charAt(y+shift);
+        }
+      }
+    }
+    return message1;
+  }
+  public String decode(String message) {
+    String message1 = "";
+    String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa";
+    for(int x = 0; x < message.length(); x++) {
+      for(int y = 1; y < alphabet.length(); y++) {
+        int xMessage = message.charAt(x);
+        if (xMessage == alphabet.charAt(y)) {
+          message1 += alphabet.charAt(y-shift);
+        }
+      }
+    }
+    return message1;
+  }
+}
