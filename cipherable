@@ -1,0 +1,5 @@
+package Ciphers;
+public interface cipherable {
+  public String encode(String message);
+  public String decode(String message);
+}
