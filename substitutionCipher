@@ -1,0 +1,27 @@
+package Cipher2;
+import java.util.Scanner;
+public class substitutionCipher implements cipherable {
+  private String secondString;
+  public substitutionCipher(String initSecondString) {
+    secondString = initSecondString;
+  }
+  String first = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZa"; 
+  Scanner sc = new Scanner(System.in);
+  String second = sc.nextLine();
+  public String encode(String message) {
+    String answer = "";
+    for (int i = 0; i < message.length(); i++) {
+      int x = first.indexOf(message.charAt(i));
+      answer += second.charAt(x);
+    }
+    return answer;
+  }
+  public String decode(String message) {
+    String answer = "";
+    for (int i = 0; i < message.length(); i++) {
+      int x = second.indexOf(message.charAt(i));
+      answer += first.charAt(x);
+    }
+    return answer;
+  }
+}
